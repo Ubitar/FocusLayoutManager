@@ -195,6 +195,13 @@
             android:text="换一种变化效果"
             android:onClick="changeTrasition1"/>
 
+        <Button
+            android:id="@+id/change_btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="再换一种变化效果"
+            android:onClick="changeTrasition2"/>
+
     </LinearLayout>
 
 </ScrollView>

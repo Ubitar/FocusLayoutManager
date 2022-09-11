@@ -247,6 +247,75 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void changeTrasition2(View view) {
+        focusLayoutManager.setMaxLayerCount(2);
+        focusLayoutManager.setNormalViewGap(dp2px(this, 10));
+        focusLayoutManager.setLayerPadding(dp2px(this, 90));
+        focusLayoutManager.removeTrasitionlistener(null);
+        focusLayoutManager.addTrasitionListener(new FocusLayoutManager.TrasitionListener() {
+            @Override
+            public void handleLayerView(FocusLayoutManager focusLayoutManager, View view,
+                                        int viewLayer, int maxLayerCount, int position,
+                                        float fraction, float offset) {
+                if (view instanceof CardView) {
+                    ((CardView) view).setCardElevation(0);
+                }
+                float realFraction = fraction;
+
+                float minScale = 0.85f;
+                float maxScale = 1f;
+                float scaleDelta = maxScale - minScale;
+                float currentLayerMaxScale =
+                        minScale + scaleDelta * (viewLayer + 1) / (maxLayerCount * 1.0f);
+                float currentLayerMinScale =
+                        minScale + scaleDelta * viewLayer / (maxLayerCount * 1.0f);
+                float realScale =
+                        currentLayerMaxScale - (currentLayerMaxScale - currentLayerMinScale) * realFraction;
+
+                float minAlpha = 0;
+                float maxAlpha = 1f;
+                float realAlpha = minAlpha + maxAlpha * (1 - realFraction);
+
+                view.setScaleX(realScale);
+                view.setScaleY(realScale);
+
+                if (viewLayer == 0) {
+                    view.setAlpha(minAlpha);
+                } else {
+                    view.setAlpha(realAlpha);
+                }
+            }
+
+            @Override
+            public void handleFocusingView(FocusLayoutManager focusLayoutManager, View view,
+                                           int position, float fraction, float offset) {
+                if (view instanceof CardView) {
+                    ((CardView) view).setCardElevation(0);
+                }
+                float realFraction = fraction;
+
+                float realScale =
+                        0.85f + (1f - 0.85f) * realFraction;
+                float realAlpha = 1;
+
+                view.setScaleX(realScale);
+                view.setScaleY(realScale);
+                view.setAlpha(realAlpha);
+            }
+
+            @Override
+            public void handleNormalView(FocusLayoutManager focusLayoutManager, View view,
+                                         int position, float fraction, float offset) {
+                if (view instanceof CardView) {
+                    ((CardView) view).setCardElevation(0);
+                }
+                view.setScaleX(0.85f);
+                view.setScaleY(0.85f);
+                view.setAlpha(1);
+            }
+        });
+    }
+
     public void normalViewGap_btn(View view) {
         EditText et = findViewById(R.id.normalViewGap);
         try {
