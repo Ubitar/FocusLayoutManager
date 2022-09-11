@@ -12,6 +12,7 @@
 
 <br/> **GIF:** <br/>
 ![gif1](https://github.com/CCY0122/FocusLayoutManager/blob/master/pic/gif_hor_2.gif)
+![gif2](https://github.com/CCY0122/FocusLayoutManager/blob/master/pic/gif_hor_3.gif)
 ![gif2](https://github.com/CCY0122/FocusLayoutManager/blob/master/pic/gif_ver.gif)
 
 <br/> 可自己监听滚动编写效果，如修改成仿MacOS文件浏览: <br/>
@@ -22,8 +23,17 @@
 ## 依赖
 
 ```
-implementation 'com.ccy:FocusLayoutManager:1.0.2'
-// （or api）
+allprojects {
+	repositories {
+		maven { url 'https://www.jitpack.io' }
+	}
+}
+```
+
+```
+dependencies {
+	implementation 'com.github.Ubitar:FocusLayoutManager:v1.0.3'
+}
 ```
 
 ## 使用
@@ -31,20 +41,20 @@ implementation 'com.ccy:FocusLayoutManager:1.0.2'
 
 ```java
  focusLayoutManager =
-                new FocusLayoutManager.Builder()
-                        .layerPadding(dp2px(this, 14))
-                        .normalViewGap(dp2px(this, 14))
-                        .focusOrientation(FocusLayoutManager.FOCUS_LEFT)
-                        .isAutoSelect(true)
-                        .maxLayerCount(3)
-                        .setOnFocusChangeListener(new FocusLayoutManager.OnFocusChangeListener() {
-                            @Override
-                            public void onFocusChanged(int focusdPosition, int lastFocusdPosition) {
-                                
-                            }
-                        })
-                        .build();
-recyclerView.setLayoutManager(focusLayoutManager);
+        new FocusLayoutManager.Builder()
+        .layerPadding(dp2px(this, 14))
+        .normalViewGap(dp2px(this, 14))
+        .focusOrientation(FocusLayoutManager.FOCUS_LEFT)
+        .isAutoSelect(true)
+        .maxLayerCount(3)
+        .setOnFocusChangeListener(new FocusLayoutManager.OnFocusChangeListener() {
+@Override
+public void onFocusChanged(int focusdPosition, int lastFocusdPosition) {
+
+        }
+        })
+        .build();
+        recyclerView.setLayoutManager(focusLayoutManager);
 ```
 各属性意义见图：<br/>
 <img src="https://github.com/CCY0122/FocusLayoutManager/blob/master/pic/detail.png" width=600 />
@@ -54,56 +64,56 @@ recyclerView.setLayoutManager(focusLayoutManager);
 #### 调整动画效果：
 ```java
                 new FocusLayoutManager.Builder()
-                        ......
-                        .setSimpleTrasitionListener(new FocusLayoutManager.SimpleTrasitionListener() {
-                             @Override
-                            public float getLayerViewMaxAlpha(int maxLayerCount) {
-                                return super.getLayerViewMaxAlpha(maxLayerCount);
-                            }
+        ......
+        .setSimpleTrasitionListener(new FocusLayoutManager.SimpleTrasitionListener() {
+@Override
+public float getLayerViewMaxAlpha(int maxLayerCount) {
+        return super.getLayerViewMaxAlpha(maxLayerCount);
+        }
 
-                            @Override
-                            public float getLayerViewMinAlpha(int maxLayerCount) {
-                                return super.getLayerViewMinAlpha(maxLayerCount);
-                            }
+@Override
+public float getLayerViewMinAlpha(int maxLayerCount) {
+        return super.getLayerViewMinAlpha(maxLayerCount);
+        }
 
-                            @Override
-                            public float getLayerChangeRangePercent() {
-                                return super.getLayerChangeRangePercent();
-                            }
-                            //and more
-                            
-                            //更多可重写方法和释义见接口声明
-                        })
-                        .build();
+@Override
+public float getLayerChangeRangePercent() {
+        return super.getLayerChangeRangePercent();
+        }
+        //and more
+
+        //更多可重写方法和释义见接口声明
+        })
+        .build();
 ```
 
 #### 自定义动画/滚动监听：
 如果你想在滑动时不仅仅改变item的大小、透明度，你有更多的想法，可以监听TrasitionListener,该监听暴露了很多关键布局数据，
 ```java
 
-            ......
-            .setSimpleTrasitionListener(null) //如果默认动画不想要，移除之。or use removeTrasitionlistener(XXX) 
-            .addTrasitionListener(new FocusLayoutManager.TrasitionListener() {
-                            @Override
-                            public void handleLayerView(FocusLayoutManager focusLayoutManager,
-                                                        View view, int viewLayer,
-                                                        int maxLayerCount, int position,
-                                                        float fraction, float offset) {
-                                
-                            }
+......
+        .setSimpleTrasitionListener(null) //如果默认动画不想要，移除之。or use removeTrasitionlistener(XXX) 
+        .addTrasitionListener(new FocusLayoutManager.TrasitionListener() {
+@Override
+public void handleLayerView(FocusLayoutManager focusLayoutManager,
+        View view, int viewLayer,
+        int maxLayerCount, int position,
+        float fraction, float offset) {
 
-                            @Override
-                            public void handleFocusingView(FocusLayoutManager focusLayoutManager,
-                                                           View view, int position,
-                                                           float fraction, float offset) {
+        }
 
-                            }
+@Override
+public void handleFocusingView(FocusLayoutManager focusLayoutManager,
+        View view, int position,
+        float fraction, float offset) {
 
-                            @Override
-                            public void handleNormalView(FocusLayoutManager focusLayoutManager, View view, int position, float fraction, float offset) {
+        }
 
-                            }
-                        })
+@Override
+public void handleNormalView(FocusLayoutManager focusLayoutManager, View view, int position, float fraction, float offset) {
+
+        }
+        })
 ```
 各参数意义见接口注释。
 实际上`SimpleTrasitionListener`内部就会被转为`TrasitionListener`。可参考转换类是怎么做的：`TrasitionListenerConvert`
