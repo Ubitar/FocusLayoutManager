@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:background="#f8f8f8">
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -189,12 +189,11 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/change_btn"
+            android:id="@+id/change_btn1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="换一种变化效果"
-            android:onClick="changeTrasition"/>
-
+            android:onClick="changeTrasition1"/>
 
     </LinearLayout>
 

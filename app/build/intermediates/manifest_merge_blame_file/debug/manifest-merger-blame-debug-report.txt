@@ -1,0 +1,72 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="ccy.focuslayoutmanagerproject"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="31" />
+9-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml
+10
+11    <application
+11-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:5:5-20:19
+12        android:allowBackup="true"
+12-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:6:9-35
+13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+13-->[androidx.core:core:1.8.0] C:\Users\Mac\.gradle\caches\transforms-2\files-2.1\e58a6c7c144187804bdec1b2faae85dd\core-1.8.0\AndroidManifest.xml:24:18-86
+14        android:debuggable="true"
+15        android:icon="@mipmap/ic_launcher"
+15-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:7:9-43
+16        android:label="@string/app_name"
+16-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:8:9-41
+17        android:roundIcon="@mipmap/ic_launcher_round"
+17-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:9:9-54
+18        android:supportsRtl="true"
+18-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:10:9-35
+19        android:testOnly="true"
+20        android:theme="@style/AppTheme" >
+20-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:11:9-40
+21        <activity android:name="ccy.focuslayoutmanagerproject.MainActivity" >
+21-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:12:9-18:20
+21-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:12:19-47
+22            <intent-filter>
+22-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:13:13-17:29
+23                <action android:name="android.intent.action.MAIN" />
+23-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:14:17-69
+23-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:14:25-66
+24
+25                <category android:name="android.intent.category.LAUNCHER" />
+25-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:16:17-77
+25-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:16:27-74
+26            </intent-filter>
+27        </activity>
+28        <activity android:name="ccy.focuslayoutmanagerproject.DetailActivity" />
+28-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:19:9-51
+28-->E:\Android workspacek\FocusLayoutManager\app\src\main\AndroidManifest.xml:19:19-49
+29
+30        <provider
+30-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mac\.gradle\caches\transforms-2\files-2.1\5a9918cb428b228aa83b31ae2b9d8249\jetified-emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+31            android:name="androidx.startup.InitializationProvider"
+31-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mac\.gradle\caches\transforms-2\files-2.1\5a9918cb428b228aa83b31ae2b9d8249\jetified-emoji2-1.2.0\AndroidManifest.xml:25:13-67
+32            android:authorities="ccy.focuslayoutmanagerproject.androidx-startup"
+32-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mac\.gradle\caches\transforms-2\files-2.1\5a9918cb428b228aa83b31ae2b9d8249\jetified-emoji2-1.2.0\AndroidManifest.xml:26:13-68
+33            android:exported="false" >
+33-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mac\.gradle\caches\transforms-2\files-2.1\5a9918cb428b228aa83b31ae2b9d8249\jetified-emoji2-1.2.0\AndroidManifest.xml:27:13-37
+34            <meta-data
+34-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mac\.gradle\caches\transforms-2\files-2.1\5a9918cb428b228aa83b31ae2b9d8249\jetified-emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+35                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+35-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mac\.gradle\caches\transforms-2\files-2.1\5a9918cb428b228aa83b31ae2b9d8249\jetified-emoji2-1.2.0\AndroidManifest.xml:30:17-75
+36                android:value="androidx.startup" />
+36-->[androidx.emoji2:emoji2:1.2.0] C:\Users\Mac\.gradle\caches\transforms-2\files-2.1\5a9918cb428b228aa83b31ae2b9d8249\jetified-emoji2-1.2.0\AndroidManifest.xml:31:17-49
+37            <meta-data
+37-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Mac\.gradle\caches\transforms-2\files-2.1\3e36d8f1b63edb19b4cf845ffbef171e\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:31:13-33:52
+38                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+38-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Mac\.gradle\caches\transforms-2\files-2.1\3e36d8f1b63edb19b4cf845ffbef171e\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:32:17-78
+39                android:value="androidx.startup" />
+39-->[androidx.lifecycle:lifecycle-process:2.4.1] C:\Users\Mac\.gradle\caches\transforms-2\files-2.1\3e36d8f1b63edb19b4cf845ffbef171e\jetified-lifecycle-process-2.4.1\AndroidManifest.xml:33:17-49
+40        </provider>
+41    </application>
+42
+43</manifest>
