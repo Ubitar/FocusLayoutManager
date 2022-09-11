@@ -33,7 +33,7 @@ allprojects {
 ```
 dependencies {
     implementation 'androidx.recyclerview:recyclerview:version'
-	implementation 'com.github.Ubitar:FocusLayoutManager:v1.0.4'
+	implementation 'com.github.Ubitar:FocusLayoutManager:1.0.4'
 }
 ```
 
